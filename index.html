@@ -37,7 +37,22 @@
     </div>
 
 
-    <div class="help-icon">?</div>
+    <div class="help-icon" onclick="toggleChat()">?</div>
+
+    <!-- Chat Assistant Box -->
+    <div id="chat-box" class="chat-box hidden">
+        <div class="chat-header">
+            <span>Welcome, my name is Tele!<br>Your personalized AI assistant.</span>
+            <button onclick="toggleChat()" class="close-btn">✖</button>
+        </div>
+        <button class="tour-btn">Give me virtual tour</button>
+        <p class="chat-note">Click the send button to use commands.</p>
+        <div class="chat-input-container">
+            <input type="text" placeholder="user prompt..." class="chat-input" id="chat-input">
+            <button class="send-btn" onclick="sendChat()">➤</button>
+        </div>
+    </div>
+
 </div>
 
 
@@ -107,6 +122,21 @@
             displayMessage("Server error. Please try again.");
         }
     }
+    function toggleChat() {
+        document.getElementById("chat-box").classList.toggle("hidden");
+    }
+
+    function sendChat() {
+        const input = document.getElementById("chat-input");
+        const message = input.value.trim();
+
+        if (message !== "") {
+            console.log("User message:", message); // just takes the message rn, idk what to do with it?
+            input.value = ""; // Clear the field
+        }
+    }
+
+
 </script>
 
 </body>
