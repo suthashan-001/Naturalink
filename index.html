@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naturalink Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="logo">
+        <img src="images/naturalink_logo.png" alt="Naturalink Logo" class="logo-img">
+    </div>
+
+    <h1 id="main-title">Welcome to Naturalink</h1>
+
+    <!-- Button Container -->
+    <div class="buttons" id="button-area">
+        <button class="login-btn" onclick="switchToForm('login')">Login</button>
+        <button class="signup-btn" onclick="switchToForm('signup')">Sign up</button>
+    </div>
+
+    <!-- Login/Signup Form - hidden initially -->
+    <div class="form-area hidden" id="form-area">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <div id="form-message"></div>
+        <div class="form-buttons">
+            <button onclick="submitForm()">Confirm</button>
+            <button onclick="goBack()">Back</button>
+        </div>
+    </div>
+
+
+    <div class="help-icon">?</div>
+</div>
+
+
+
+
+
+<script>
+    let currentAction = "";
+
+    function switchToForm(action) {
+        currentAction = action;
+        document.getElementById("main-title").textContent = action === "login" ? "Login" : "Sign Up";
+        document.getElementById("button-area").classList.add("hidden");
+        document.getElementById("form-area").classList.remove("hidden");
+        clearMessage();
+    }
+
+    function goBack() {
+        document.getElementById("main-title").textContent = "Welcome to Naturalink";
+        document.getElementById("form-area").classList.add("hidden");
+        document.getElementById("button-area").classList.remove("hidden");
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        clearMessage();
+    }
+
+    function displayMessage(msg, success = false) {
+        const msgBox = document.getElementById("form-message");
+        msgBox.textContent = msg;
+        msgBox.style.color = success ? "green" : "red";
+    }
+
+    function clearMessage() {
+        document.getElementById("form-message").textContent = "";
+    }
+
+    async function submitForm() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (!username || !password) {
+            displayMessage("Please enter both fields.");
+            return;
+        }
+
+        const url = currentAction === "login" ? "http://localhost:3000/login" : "http://localhost:3000/register";
+
+        try {
+            const res = await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                displayMessage(data.message || "Something went wrong.");
+                return;
+            }
+
+            displayMessage(data.message, true);
+            setTimeout(goBack, 1000); // THIS IS JUST TO SHOW THAT U SUCCESSFULLY LOGGED IN, CHANGE AFTERWARDS TO
+                                      // GO TO MAIN PAGE
+
+        } catch (error) {
+            displayMessage("Server error. Please try again.");
+        }
+    }
+</script>
+
+</body>
+</html>
