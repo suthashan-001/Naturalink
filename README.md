@@ -139,5 +139,8 @@ You can use the **Live Server** extension in VS Code:
 - Ryan Hastings < 100-894-215 > **role**: Front end, created navbar using the Bulma CSS framework. Created the help page using HTML grids, CSS transitions and a small amount of jQuery. Handled project directory organization.
 - Andrei Chinchisan < 100-8290-530 > 0% - family emergency and pc catching on fire
 
+<br>
+One last thing, the help page formatting was not working for our group member that recorded the video, despite being on the same version of the repo as the rest of us, so I am leaving an image here of what this is supposed to look like. Hopefully it looks fine on your end.<br><br>
+<img alt="FAQ" src="images/faq.jpg">
 
 ---
