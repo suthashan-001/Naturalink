@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naturalink</title>
+    <title>Naturalink Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -19,7 +20,7 @@
             
             <!-- Burger -->
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="sudokuMenu">
+                data-target="navMenu">
                 <span class="burger-line" aria-hidden="true"></span>
                 <span class="burger-line" aria-hidden="true"></span>
                 <span class="burger-line" aria-hidden="true"></span>
@@ -48,5 +49,107 @@
             </div>
         </div>
     </nav>
+
+    <!-- Added Dashboard Content -->
+    <div id="app" class="container">
+        <div class="sidebar">
+            <div class="dashboard-box">
+                <h2>Dashboard</h2>
+                
+                <div class="tasks-container">
+                    <h3>Task List</h3>
+                    <div class="tasks-scrollable">
+                        <div class="task">
+                            <input type="checkbox"> Morning pushups
+                        </div>
+                        <div class="task">
+                            <input type="checkbox"> Upload health documents
+                        </div>
+                        <div class="task">
+                            <input type="checkbox"> Drink 2L water
+                        </div>
+                        <div class="task">
+                            <input type="checkbox"> Schedule dentist
+                        </div>
+                        <div class="task">
+                            <input type="checkbox"> Refill prescription
+                        </div>
+                        <div class="task">
+                            <input type="checkbox"> Evening stretches
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="appointments-container">
+                    <h3>Upcoming Appointments</h3>
+                    <div class="appointments">
+                        <div 
+                            v-for="appointment in appointments" 
+                            :key="appointment.date + appointment.time"
+                            class="appointment"
+                        >
+                            <strong>{{ appointment.date }} ({{ appointment.time }})</strong> - {{ appointment.type }}
+                        </div>
+                    </div>
+                    <button class="more-details" @click="togglePopup">More details</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="summary-box">
+                <p>patient previous visit summary & doctor's advice to patient</p>
+            </div>
+        </div>
+
+        <!-- Appointment Popup -->
+        <div class="popup-overlay" v-if="showPopup">
+            <div class="appointment-popup-box">
+                <span class="close-popup" @click="togglePopup">&times;</span>
+                <h3>Appointment Options</h3>
+                
+                <div class="popup-buttons">
+                    <button class="popup-btn">
+                        <img src="images/calendar-icon.png" alt="Calendar" class="btn-icon">
+                        <span>View Full Details</span>
+                    </button>
+                    
+                    <button class="popup-btn">
+                        <img src="images/pencil-icon.png" alt="Edit" class="btn-icon">
+                        <span>Edit Appointment</span>
+                    </button>
+                    
+                    <button class="popup-btn">
+                        <img src="images/undo-icon.png" alt="Reschedule" class="btn-icon">
+                        <span>Reschedule</span>
+                    </button>
+                    
+                    <button class="popup-btn">
+                        <img src="images/phone-icon.png" alt="Phone" class="btn-icon">
+                        <span>Contact Support</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    
+    <!-- Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

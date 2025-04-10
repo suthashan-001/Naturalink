@@ -1,28 +1,66 @@
-@font-face { font-family: Coolvetica; src: url('../fonts/coolvetica.otf')}
-
-nav {
-    font-family: Coolvetica;
+@font-face {
+    font-family: Coolvetica; 
+    src: url('../fonts/coolvetica.otf');
 }
 
-nav a {
+.navbar {
+    font-family: Coolvetica;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0.5rem 1rem;
+    background-color: #e8ffe2 !important;
+}
+
+.navbar a {
     font-size: 20px;
 }
 
-.navbar-menu a{
+.navbar-menu a {
     padding-left: 20px;
     padding-right: 20px;
     margin-left: 30px;
 }
 
-.navbar-menu a:hover{
+.navbar-menu a:hover {
     background-color: #20d100 !important;
+    color: white !important;
 }
 
-.navbar-menu button{
+.navbar-menu button {
     background-color: white !important;
     border-radius: 5px;
+    border: 1px solid #ddd !important;
 }
 
-.navbar-menu button:hover{
+.navbar-menu button:hover {
     background-color: #20d100 !important;
+    color: white !important;
+}
+
+.logo-img {
+    height: 50px;
+    max-height: none !important;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 1023px) {
+    .navbar-menu {
+        background-color: #e8ffe2;
+    }
+    
+    .navbar-item {
+        padding: 0.75rem 1rem;
+    }
+    
+    .navbar-start .navbar-item:first-child {
+        font-size: 40px !important;
+    }
+}
+
+/* Burger menu lines */
+.burger-line {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    margin: 4px 0;
 }
