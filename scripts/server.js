@@ -6,7 +6,9 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 3000;
-const USERS_FILE = '../data/users.json';
+const path = require('path');
+const USERS_FILE = path.join(__dirname, '../data/users.json');
+
 
 app.use(cors());
 app.use(bodyParser.json());
