@@ -1,0 +1,162 @@
+/* ==============================
+   Global Styles  & Typography
+   ============================== */
+   body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+  }
+  
+  .brand-header {
+    text-align: center;
+    padding: 0.8rem 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo{
+    height: 55px;
+    margin-right: 15px;
+  }
+  .page-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.2rem;
+    margin: 0;
+    color: #3c3c3c;
+  }
+  
+  /* ==============================
+     Container for Date & Time Inputs
+     ============================== */
+  .date-time-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    margin: 3rem auto 2rem;
+    max-width: 1000px;
+  }
+  
+  /* Left Column: Date Input + Calendar */
+  .date-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Right Column: Time Input */
+  .time-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Input Labels */
+  .input-label {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #4c4c4c;
+  }
+  
+  /* Date and Time Inputs */
+  #appointmentDate,
+  #appointmentTime {
+    width: 200px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-bottom: 1rem;
+  }
+  
+  /* ==============================
+     FullCalendar Styling
+     ============================== */
+  .fullcalendar-box {
+    width: 420px;  /* Increased width for better spacing */
+    background-color: #f9f7fc;
+    border-radius: 6px;
+    padding: 1.2rem;  /* More padding for breathing room */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  #calendar {
+    border: none;
+    padding: 1rem;
+  }
+  
+  /* Override FullCalendar default styles */
+  .fc-toolbar {
+    margin-bottom: 1rem;
+  }
+  .fc-toolbar h2 {
+    font-size: 1.2rem;
+    color: #4c4c4c;
+    font-family: 'Georgia', serif;
+  }
+
+  /* had to use !important to bypass css specificity */
+  .fc-button {
+    background-color: #e5d6fa !important;
+    border: none !important;
+    color: #4c4c4c !important;
+    padding: 5px 10px !important;
+    border-radius: 4px !important;
+    font-family: Arial, sans-serif !important;
+    font-weight: bold !important;
+  }
+  .fc-button:hover {
+    background-color: #d7c4f3 !important;
+  }
+  .fc-day-header {
+    background-color: #faf5ff;
+    color: #4c4c4c;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 0.5rem 0;
+  }
+  .fc-day {
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .fc-day:hover {
+    background-color: #f2ebfc;
+  }
+  .fc-today {
+    background-color: #efe6fb !important;
+  }
+  .fc-event, .fc-event:hover {
+    background-color: #cdbbed !important;
+    border: none !important;
+    color: #333 !important;
+    font-weight: normal !important;
+  }
+  
+  /* ==============================
+     Submit Button Styling
+     ============================== */
+  .submit-btn-container {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  #submitAppointment {
+    background-color: #4d5939;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    transition: background-color 0.2s;
+  }
+  #submitAppointment:hover {
+    background-color: #6b7a59;
+  }
+  
