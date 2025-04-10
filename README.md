@@ -128,7 +128,7 @@ You can use the **Live Server** extension in VS Code:
 - Click **"Open with Live Server"**  Or go to the url "https://localhost:3000" on your browser
 
 ### ⚠️ Important Note:
-> Just clicking the link from the Node.js terminal **will not display the full app**. You **must run the HTML frontend via a local server** like Live Server
+> Just clicking the link from the Node.js terminal **will not display the full app**. You **must run the HTML frontend via a local server** like Live Server or going to the url "https://localhost:3000" on your browser
 
 
 ## Group Members 
