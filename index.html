@@ -174,7 +174,7 @@
                     fetch(`http://localhost:3000/csv-appointments/${username}`)
                         .then(res => res.json())
                         .then(data => {
-                            console.log("Appointments fetched:")
+                            console.log("Appointments fetchegd:")
                             console.log("Appointments fetched:", data);
                             this.appointments = data;
                         })
@@ -190,16 +190,7 @@
             }
         });
     });
-    // success popup
-    if (localStorage.getItem("appointmentSuccess") === "true") {
-        const popup = document.getElementById("success-popup");
-        popup.style.display = "block";
-        localStorage.removeItem("appointmentSuccess");
 
-        setTimeout(() => {
-            popup.style.display = "none";
-        }, 3000);
-    }
 
 </script>
 </body>
