@@ -117,18 +117,8 @@ npm install
 node server.js
 ```
 > The server will start at: `http://localhost:3000`
----
 
-### 3. Start the Frontend (HTML Interface)
-To view the actual application in the browser, you **must start an HTML server** — simply opening `index.html` by double-clicking won't work properly.
-
-You can use the **Live Server** extension in VS Code:
-
-- Right-click on `index.html`
-- Click **"Open with Live Server"**  Or go to the url "https://localhost:3000" on your browser
-
-### ⚠️ Important Note:
-> Just clicking the link from the Node.js terminal **will not display the full app**. You **must run the HTML frontend via a local server** like Live Server or going to the url "https://localhost:3000" on your browser
+Simply ```CTRL + LClick``` this link in your terminal, or copy and paste it into your browser, and it will take you to the website.
 
 
 ## Group Members 
