@@ -1,0 +1,93 @@
+@font-face {
+    font-family: Coolvetica; 
+    src: url('../fonts/coolvetica.otf');
+}
+
+body {
+    margin: 0;
+    height: 100vh !important;
+    background-color: #f9f9f9;
+}
+
+#faq_title {
+    font-family: Coolvetica;
+    color: #282828;
+    font-size: 70px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#contacts {
+    font-family: Coolvetica;
+    color: #7a7a7a;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/******************************************************************************************/
+/* CSS created with guidance from this video: https://www.youtube.com/watch?v=9nJxybp7CEc */
+/******************************************************************************************/
+
+/* Container for question & answer boxes */
+.expandable {
+    font-family: Coolvetica;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/* Expand text box */
+.expandable--open .expandable__content-wrapper {
+    grid-template-rows: 1fr;
+}
+
+/* Rotate chevron icon */
+.expandable--open .expandable__icon {
+    transform: rotate(-90deg);
+}
+
+/* Transition for icon rotation */
+.expandable__icon {
+    transition: transform 0.5s;
+}
+
+/* Styling for question boxes */
+.expandable__title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    user-select: none;
+    background-color: #22df89;
+    color: white;
+    cursor: pointer;
+}
+
+.expandable__title-bar:hover {
+    background-color: #17a363;
+    transition: 0.2s;
+}
+
+/* Styling for answer boxes */
+.expandable__content {
+    padding: 14px;
+    line-height: 1.4;
+    font-size: 0.85em;
+    border-top: none;
+    overflow: hidden;
+}
+
+/* Hides answer box and controls the transition of expanding and collapsing */
+.expandable__content-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-out;
+}
+
+/**********************************************************************************/
+
+#faq_board {
+    display: grid;
+    margin: 70px 20% 0 20%;
+    overflow: hidden;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Naturalink</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+        <link rel="stylesheet" href="../styles/navbar.css">
+        <link rel="stylesheet" href="../styles/faq.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.1/d3.min.js" integrity="sha512-EJphfO0pq9xyT3qaHte1zam2S9a1PZ76oHBjayziMT+2lw/Y0NhkSVHS2rfl3t4UX/eyq/D6f9d2sjA6K9t/Kg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript" src="../scripts/faq.js"></script>
+    </head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #e8ffe2">
+        <div class="navbar-brand">
+            <!-- Logo -->
+            <span class="navbar-item" style="margin-left: 10px;">
+                <img src="../images/naturalink_logo.png" alt="Naturalink Logo" class="logo-img">
+            </span>
+            
+            <!-- Burger -->
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="sudokuMenu">
+                <span class="burger-line" aria-hidden="true"></span>
+                <span class="burger-line" aria-hidden="true"></span>
+                <span class="burger-line" aria-hidden="true"></span>
+                <span class="burger-line" aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <!-- Menu Items -->
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+                <span class="navbar-item has-text-grey-darker" style="font-size: 60px">Naturalink</span>
+                <a class="navbar-item has-text-grey-darker" href="../index.html">Dashboard 🏡</a>
+                <a class="navbar-item has-text-grey-darker" href="../pages/select_datetime.html">Appointments 🗓️</a>
+                <a class="navbar-item has-text-grey-darker" href="../pages/help.html">Help❔</a>
+            </div>
+        </div>
+    </nav>
+
+    <p id="faq_title">Frequently Asked Questions</p>
+
+    <!-- FAQ -->
+    <div id="faq_board">
+
+        <div class="expandable">
+            <div class="expandable__title-bar">
+                <span class="expandable__title">How can I contact my doctor?</span>
+                <ion-icon class="expandable__icon" name="chevron-back-circle"></ion-icon>
+            </div>
+            <div class="expandable__content-wrapper">
+                <div class="expandable__content">
+                    <p>You can book an appointment with your doctor <a href="select_datetime.html">here.</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="expandable">
+            <div class="expandable__title-bar">
+                <span class="expandable__title">What insurance plans do you accept?</span>
+                <ion-icon class="expandable__icon" name="chevron-back-circle"></ion-icon>
+            </div>
+            <div class="expandable__content-wrapper">
+                <div class="expandable__content">
+                    <p>We accept all recognized provincial and federal insurance plans.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="expandable">
+            <div class="expandable__title-bar">
+                <span class="expandable__title">What are hours of operation and location?</span>
+                <ion-icon class="expandable__icon" name="chevron-back-circle"></ion-icon>
+            </div>
+            <div class="expandable__content-wrapper">
+                <div class="expandable__content">
+                    <p>We are open 24 hours a day, 7 days a week. Our building is located at 123 Address Rd, Toronto.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="expandable">
+            <div class="expandable__title-bar">
+                <span class="expandable__title">Do you offer telehealth or virtual appointments?</span>
+                <ion-icon class="expandable__icon" name="chevron-back-circle"></ion-icon>
+            </div>
+            <div class="expandable__content-wrapper">
+                <div class="expandable__content">
+                    <p>We do not offer telehealth or virtual appointments. You can contact us with the information below, or book an appointment online by going <a href="select_datetime.html">here.</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="expandable">
+            <div class="expandable__title-bar">
+                <span class="expandable__title">What should I bring to my first visit?</span>
+                <ion-icon class="expandable__icon" name="chevron-back-circle"></ion-icon>
+            </div>
+            <div class="expandable__content-wrapper">
+                <div class="expandable__content">
+                    <p>Typical items include ID, insurance card, medication list, and medical history.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p id="contacts">Contact Us<br>987-123-7456&nbsp; ⬤ &nbsp;naturalink@gmail.com</p>
+
+    <!-- Short jQuery function to expand and collapse text boxes -->
+    <script>
+        $(".expandable").click(function() {
+            $(this).toggleClass("expandable--open");
+        });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

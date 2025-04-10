@@ -22,5 +22,9 @@
   {
     "username": "myron",
     "password": "$2b$10$VEEatuFk1FI21BQTL4MrKu1NXXl6z9JZ2EyoWBI5vwUQpeMr0fJv6"
+  },
+  {
+    "username": "Ryan Hastings",
+    "password": "$2b$10$8zd9F9kOS.T15FzZ2ekfYOLJX7fnO7J7UQzD0qU0yy3miiubfn.Ee"
   }
 ]
