@@ -193,5 +193,16 @@
 
 
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const loggedInUser = localStorage.getItem("User");
+
+        if (!loggedInUser) {
+            window.location.href = "pages/login.html"; // ✅ redirect to login
+        }
+    });
+</script>
+
 </body>
 </html>
