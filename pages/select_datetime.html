@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Naturalink: Select Date and Time</title>
+  <link rel="stylesheet" href="../styles/booking_style.css">
+
+  <!-- FullCalendar & dependencies (v3.9.0) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+</head>
+<body>
+
+  <header class="brand-header">
+    <img src="../images/naturalink_logo.png" alt="Naturalink Logo" class="logo">
+    <h1 class="page-title">Select date and time</h1>
+  </header>
+
+  <div class="date-time-container">
+    <!-- Left Column: Date Input & Calendar -->
+    <div class="date-picker">
+      <label for="appointmentDate" class="input-label">Date</label>
+      <input type="date" id="appointmentDate" name="appointmentDate" placeholder="MM/DD/YYYY">
+      <div id="calendar" class="fullcalendar-box"></div>
+    </div>
+
+    <!-- Right Column: Time Input  - user types in -->
+    <div class="time-picker">
+      <label for="appointmentTime" class="input-label">Time</label>
+      <input type="time" id="appointmentTime" name="appointmentTime" required>
+    </div>
+  </div>
+
+  <!-- Submit Button  -->
+  <div class="submit-btn-container">
+    <button id="submitAppointment" onclick="handleAppointmentSubmission()">Submit</button>
+  </div>
+
+  <!-- Load JavaScript -->
+  <script src="../scripts/booking_flow.js"></script>
+</body>
+</html>
