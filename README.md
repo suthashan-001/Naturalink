@@ -132,7 +132,7 @@ You can use the **Live Server** extension in VS Code:
 
 
 ## Group Members 
-- Suthashan Tharmarajah < 100-748-346  > **role**: Ux/Ui designer, project lead coordinator, booking system implementaion both front-end and backend [select appointment-date page, calendar integration, confirmation-appt page ], readme file
+- Suthashan Tharmarajah < 100-748-346  > **role**: Ux/Ui designer, project concept, project lead coordinator, booking system implementaion both front-end and backend [booking_flow, calendar integration, select_datetime], readme file
 { github: suthashan-001} 
 - Myron Lobo < 100-874-243 > 
 - Luke Pereira < 100-826- 957 > **role** - front end and back end implementation for users and login, synced appointments to users and to the html pages, made most of server.js excluding convertTo24Hour and  GET appointments api  
