@@ -8,10 +8,33 @@ const app = express();
 const PORT = 3000;
 const path = require('path');
 const USERS_FILE = path.join(__dirname, '../data/users.json');
+const APPOINTMENTS_FILE = path.join(__dirname, '../data/appointments.csv'); 
 
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.get('/api/appointments', (req, res) => {
+    if (!fs.existsSync(APPOINTMENTS_FILE)) {
+        return res.status(404).json({ error: 'Appointments file not found' });
+    }
+
+    fs.readFile(APPOINTMENTS_FILE, 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error reading appointments file' });
+        }
+
+        const appointments = data
+            .trim()
+            .split('\n')
+            .map(line => {
+                const [date, time, type] = line.split(',');
+                return { date, time, type };
+            });
+
+        res.json(appointments);
+    });
+});
 
 // Load users from json
 function loadUsers() {
