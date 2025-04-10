@@ -135,9 +135,9 @@ You can use the **Live Server** extension in VS Code:
 - Suthashan Tharmarajah < 100-748-346  > **role**: Ux/Ui designer, project concept, project lead coordinator, booking system implementaion both front-end and backend [booking_flow, calendar integration, select_datetime], readme file
 { github: suthashan-001} 
 - Myron Lobo < 100-874-243 > **role**: Back-End, Created Dashboard that consists of a scrollable task lists that can be checked off, and a upcoming appointment list that uses Vue as a frontend framework to dynamically render and manage the appointment data(appointment.csv) fetched from our Node.js server. Created a popup window when a user clicks "more details" on the dashboard. Contributed to creation of server.js and created app.js 
-- Luke Pereira < 100-826- 957 > **role** - front end and back end implementation for users and login, synced appointments to users and to the html pages, made most of server.js excluding convertTo24Hour and  GET appointments api  
-- Ryan Hastings < 100-894-215 > **role**
-- Andrei Chinchisan < 100-8290 530 > 0% - family emergency and pc catching on fire
+- Luke Pereira < 100-826- 957 > **role**: front end and back end implementation for users and login, synced appointments to users and to the html pages, made most of server.js excluding convertTo24Hour and  GET appointments api  
+- Ryan Hastings < 100-894-215 > **role**: Front end, created navbar using the Bulma CSS framework. Created the help page using HTML grids, CSS transitions and a small amount of jQuery. Handled project directory organization.
+- Andrei Chinchisan < 100-8290-530 > 0% - family emergency and pc catching on fire
 
 
 ---
