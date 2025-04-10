@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naturalink</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/login.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #e8ffe2">
+        <div class="navbar-brand">
+            <!-- Logo -->
+            <span class="navbar-item" style="margin-left: 10px;">
+                <img src="../images/naturalink_logo.png" alt="Naturalink Logo" class="logo-img">
+            </span>
+            
+            <!-- Burger -->
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="sudokuMenu">
+                <span class="burger-line" aria-hidden="true"></span>
+                <span class="burger-line" aria-hidden="true"></span>
+                <span class="burger-line" aria-hidden="true"></span>
+                <span class="burger-line" aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <!-- Menu Items -->
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+                <span class="navbar-item has-text-grey-darker" style="font-size: 60px">Naturalink</span>
+                <a class="navbar-item has-text-grey-darker" href="../index.html">Dashboard 🏡</a>
+                <a class="navbar-item has-text-grey-darker" href="../pages/appointments.html">Appointments 🗓️</a>
+                <a class="navbar-item has-text-grey-darker" href="../pages/help.html">Help❔</a>
+            </div>
+            
+            <div class="navbar-end" style="padding-right: 20px">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button has-text-grey-darker is-white" href="../pages/login.html">Log in</a>
+                        <a class="button is-white">
+                            <img src="../images/settings_icon.png" alt="Settings">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="logo">
+            <img src="../images/naturalink_logo.png" alt="Naturalink Logo" class="logo-img">
+        </div>
+
+        <h1 id="main-title">Welcome to Naturalink</h1>
+
+        <!-- Button Container -->
+        <div class="btns" id="button-area">
+            <button class="login-btn" onclick="switchToForm('login')">Login</button>
+            <button class="signup-btn" onclick="switchToForm('signup')">Sign up</button>
+        </div>
+
+        <!-- Login/Signup Form - hidden initially -->
+        <div class="form-area hidden" id="form-area">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <div id="form-message"></div>
+            <div class="form-buttons">
+                <button onclick="submitForm()">Confirm</button>
+                <button onclick="goBack()">Back</button>
+            </div>
+        </div>
+
+
+        <div class="help-icon" onclick="toggleChat()">?</div>
+
+        <!-- Chat Assistant Box -->
+        <div id="chat-box" class="chat-box hidden">
+            <div class="chat-header">
+                <span>Welcome, my name is Tele!<br>Your personalized AI assistant.</span>
+                <button onclick="toggleChat()" class="close-btn">✖</button>
+            </div>
+            <button class="tour-btn">Give me virtual tour</button>
+            <p class="chat-note">Click the send button to use commands.</p>
+            <div class="chat-input-container">
+                <input type="text" placeholder="user prompt..." class="chat-input" id="chat-input">
+                <button class="send-btn" onclick="sendChat()">➤</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script>
+        let currentAction = "";
+
+        function switchToForm(action) {
+            currentAction = action;
+            document.getElementById("main-title").textContent = action === "login" ? "Login" : "Sign Up";
+            document.getElementById("button-area").classList.add("hidden");
+            document.getElementById("form-area").classList.remove("hidden");
+            clearMessage();
+        }
+
+        function goBack() {
+            document.getElementById("main-title").textContent = "Welcome to Naturalink";
+            document.getElementById("form-area").classList.add("hidden");
+            document.getElementById("button-area").classList.remove("hidden");
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            clearMessage();
+        }
+
+        function displayMessage(msg, success = false) {
+            const msgBox = document.getElementById("form-message");
+            msgBox.textContent = msg;
+            msgBox.style.color = success ? "green" : "red";
+        }
+
+        function clearMessage() {
+            document.getElementById("form-message").textContent = "";
+        }
+
+        async function submitForm() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (!username || !password) {
+                displayMessage("Please enter both fields.");
+                return;
+            }
+
+            const url = currentAction === "login" ? "http://localhost:3000/login" : "http://localhost:3000/register";
+
+            try {
+                const res = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    displayMessage(data.message || "Something went wrong.");
+                    return;
+                }
+
+                displayMessage(data.message, true);
+                setTimeout(goBack, 1000); // THIS IS JUST TO SHOW THAT U SUCCESSFULLY LOGGED IN, CHANGE AFTERWARDS TO
+                                        // GO TO MAIN PAGE
+
+            } catch (error) {
+                displayMessage("Server error. Please try again.");
+            }
+        }
+        function toggleChat() {
+            document.getElementById("chat-box").classList.toggle("hidden");
+        }
+
+        function sendChat() {
+            const input = document.getElementById("chat-input");
+            const message = input.value.trim();
+
+            if (message !== "") {
+                console.log("User message:", message); // just takes the message rn, idk what to do with it?
+                input.value = ""; // Clear the field
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>

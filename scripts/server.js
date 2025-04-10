@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 3000;
-const USERS_FILE = './users.json';
+const USERS_FILE = '../data/users.json';
 
 app.use(cors());
 app.use(bodyParser.json());

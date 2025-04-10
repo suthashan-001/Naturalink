@@ -1,0 +1,28 @@
+@font-face { font-family: Coolvetica; src: url('../fonts/coolvetica.otf')}
+
+nav {
+    font-family: Coolvetica;
+}
+
+nav a {
+    font-size: 20px;
+}
+
+.navbar-menu a{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 30px;
+}
+
+.navbar-menu a:hover{
+    background-color: #20d100 !important;
+}
+
+.navbar-menu button{
+    background-color: white !important;
+    border-radius: 5px;
+}
+
+.navbar-menu button:hover{
+    background-color: #20d100 !important;
+}

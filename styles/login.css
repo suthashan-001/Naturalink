@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    height: 100vh !important;
     font-family: 'Georgia', serif;
     background-color: #f9f9f9;
 }
@@ -49,12 +50,12 @@ h1 {
     color: #2f3d26;
 }
 
-.buttons {
+.btns {
     text-align: center;
     margin-top: 40px;
 }
 
-.buttons button {
+.btns button {
     padding: 14px 30px;
     margin: 15px;
     font-size: 18px;
@@ -68,9 +69,18 @@ h1 {
     color: #000;
 }
 
+.login-btn:hover {
+    background-color: #20d100;
+}
+
 .signup-btn {
     background-color: #f5f5f5;
     border: 1px solid #aaa;
+    color: #000;
+}
+
+.signup-btn:hover {
+    background-color: #8f8f8f;
 }
 
 .help-icon {
@@ -110,6 +120,7 @@ h1 {
     justify-content: center;
     gap: 15px;
     margin-top: 10px;
+    color: black;
 }
 
 .form-buttons button {
@@ -119,6 +130,10 @@ h1 {
     background-color: #dbe3d1;
     border-radius: 6px;
     cursor: pointer;
+}
+
+.form-buttons button:hover {
+    background-color: #20d100;
 }
 
 .hidden {
