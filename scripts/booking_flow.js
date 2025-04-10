@@ -39,6 +39,8 @@ function handleAppointmentSubmission() {
   .then(response => response.json())
   .then(data => {
     alert("Appointment booked successfully!");
+    window.location.href = "../index.html";
+
     // Optionally, update the calendar events or redirect to a confirmation page.
   })
   .catch(err => {
