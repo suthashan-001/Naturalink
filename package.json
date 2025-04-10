@@ -1,0 +1,26 @@
+{
+  "name": "naturalink",
+  "version": "1.0.0",
+  "description": "telehealth platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suthashan-001/Naturalink.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suthashan-001/Naturalink/issues"
+  },
+  "homepage": "https://github.com/suthashan-001/Naturalink#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
