@@ -18,5 +18,9 @@
   {
     "username": "bbb",
     "password": "$2b$10$tggaUuh/B47l/cZ81jkIDexXMaitSXiX28g/gX7bq3O5eoZUTKTre"
+  },
+  {
+    "username": "myron",
+    "password": "$2b$10$VEEatuFk1FI21BQTL4MrKu1NXXl6z9JZ2EyoWBI5vwUQpeMr0fJv6"
   }
 ]
