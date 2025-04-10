@@ -117,6 +117,11 @@
     </div>
 </div>
 
+<div id="success-popup" class="notification is-success" style="display: none; position: fixed; top: 20px; left: 50%; z-index: 999;">
+    Appointment booked successfully!
+</div>
+
+
 <!-- Scripts -->
 <script>
     function logoutUser() {
@@ -185,6 +190,17 @@
             }
         });
     });
+    // success popup
+    if (localStorage.getItem("appointmentSuccess") === "true") {
+        const popup = document.getElementById("success-popup");
+        popup.style.display = "block";
+        localStorage.removeItem("appointmentSuccess");
+
+        setTimeout(() => {
+            popup.style.display = "none";
+        }, 3000);
+    }
+
 </script>
 </body>
 </html>
