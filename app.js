@@ -1,36 +1,47 @@
 new Vue({
-    el: '#app',
-    data: {
+  el: '#app',
+  data: {
       appointments: [],
       showPopup: false
-    },
-    created() {
-      // Trying both endpoints - use static data if both fail
-      const endpoints = [
-        'http://localhost:3000/api/appointments',  // Node server
-        '/api/appointments'                       // Relative path
-      ];
-      
-      const fetchPromises = endpoints.map(url => 
-        fetch(url).then(res => res.ok ? res.json() : Promise.reject())
-      );
-  
-      Promise.any(fetchPromises)
-        .then(data => {
-          this.appointments = data;
-        })
-        .catch(() => {
-          // Fallback static data if API isn't available
-          this.appointments = [
-            { date: "Dec 2", time: "2:00 PM", type: "virtual" },
-            { date: "Dec 4", time: "12:30 PM", type: "in-person" }
-          ];
-          console.warn("Using fallback appointment data");
-        });
-    },
-    methods: {
+  },
+  created() {
+      this.fetchAppointments();
+  },
+  methods: {
+      fetchAppointments() {
+          fetch('http://localhost:3000/api/appointments')
+              .then(res => res.json())
+              .then(data => {
+                  console.log("Appointments data:", data); // Debug log
+                  this.appointments = data;
+              })
+              .catch(() => {
+                  console.warn("Using fallback data");
+                  this.appointments = [
+                      {
+                          title: "Sample Appointment",
+                          start: new Date().toISOString().split('T')[0] + "T09:00",
+                          end: new Date().toISOString().split('T')[0] + "T10:00"
+                      }
+                  ];
+              });
+      },
+      formatDate(isoString) {
+          const date = new Date(isoString);
+          return date.toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric'
+          });
+      },
+      formatTime(isoString) {
+          const date = new Date(isoString);
+          return date.toLocaleTimeString('en-US', {
+              hour: '2-digit',
+              minute: '2-digit'
+          });
+      },
       togglePopup() {
-        this.showPopup = !this.showPopup;
+          this.showPopup = !this.showPopup;
       }
-    }
-  });
+  }
+});

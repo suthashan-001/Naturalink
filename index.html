@@ -85,14 +85,17 @@
                     <div class="appointments">
                         <div 
                             v-for="appointment in appointments" 
-                            :key="appointment.date + appointment.time"
+                            :key="appointment.start"  
                             class="appointment"
                         >
-                            <strong>{{ appointment.date }} ({{ appointment.time }})</strong> - {{ appointment.type }}
+                            <!-- Updated to use new data structure -->
+                            <strong>{{ formatDate(appointment.start) }} ({{ formatTime(appointment.start) }})</strong>
+                            - {{ appointment.title }}  <!-- Changed from type to title -->
                         </div>
                     </div>
                     <button class="more-details" @click="togglePopup">More details</button>
                 </div>
+
             </div>
         </div>
 
