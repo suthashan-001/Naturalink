@@ -77,7 +77,7 @@ User Lands
 - **HTML5** – Structure of login system, dashboard and booking pages
 - **CSS3** – Styling with the use of colourful emojis
 - **JavaScript** - handles main functionality as well as front-end and back-end communication
-- **FullCalendar.io** – built-in calendar api for vue/javascript
+- **FullCalendar.io** – built-in calendar api for vue/javascript  (https://fullcalendar.io/docs)
 
 ### 🖥️ Backend
 - **Node.js** – 
