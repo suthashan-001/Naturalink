@@ -1,158 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Naturalink Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"/>
+    <link rel="stylesheet" href="styles/navbar.css"/>
+    <link rel="stylesheet" href="styles/style.css"/>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #e8ffe2">
-        <div class="navbar-brand">
-            <!-- Logo -->
-            <span class="navbar-item" style="margin-left: 10px;">
-                <img src="images/naturalink_logo.png" alt="Naturalink Logo" class="logo-img">
-            </span>
-            
-            <!-- Burger -->
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navMenu">
-                <span class="burger-line" aria-hidden="true"></span>
-                <span class="burger-line" aria-hidden="true"></span>
-                <span class="burger-line" aria-hidden="true"></span>
-                <span class="burger-line" aria-hidden="true"></span>
-            </a>
+<!-- Navbar -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #e8ffe2">
+    <div class="navbar-brand">
+      <span class="navbar-item" style="margin-left: 10px;">
+        <img src="images/naturalink_logo.png" alt="Naturalink Logo" class="logo-img"/>
+      </span>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span class="burger-line" aria-hidden="true"></span>
+            <span class="burger-line" aria-hidden="true"></span>
+            <span class="burger-line" aria-hidden="true"></span>
+            <span class="burger-line" aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navMenu" class="navbar-menu">
+        <div class="navbar-start">
+            <span class="navbar-item has-text-grey-darker" style="font-size: 60px">Naturalink</span>
+            <a class="navbar-item has-text-grey-darker" href="#">Dashboard 🏡</a>
+            <a class="navbar-item has-text-grey-darker" href="pages/select_datetime.html">Appointments 🗓️</a>
+            <a class="navbar-item has-text-grey-darker" href="pages/help.html">Help❔</a>
         </div>
 
-        <!-- Menu Items -->
-        <div id="navMenu" class="navbar-menu">
-            <div class="navbar-start">
-                <span class="navbar-item has-text-grey-darker" style="font-size: 60px">Naturalink</span>
-                <a class="navbar-item has-text-grey-darker" href="#">Dashboard 🏡</a>
-                <a class="navbar-item has-text-grey-darker" href="pages/appointments.html">Appointments 🗓️</a>
-                <a class="navbar-item has-text-grey-darker" href="pages/help.html">Help❔</a>
-            </div>
-            
-            <div class="navbar-end" style="padding-right: 20px">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button has-text-grey-darker is-white" href="pages/login.html">Log in</a>
-                        <a class="button is-white">
-                            <img src="images/settings_icon.png" alt="Settings">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Added Dashboard Content -->
-    <div id="app" class="container">
-        <div class="sidebar">
-            <div class="dashboard-box">
-                <h2>Dashboard</h2>
-                
-                <div class="tasks-container">
-                    <h3>Task List</h3>
-                    <div class="tasks-scrollable">
-                        <div class="task">
-                            <input type="checkbox"> Morning pushups
-                        </div>
-                        <div class="task">
-                            <input type="checkbox"> Upload health documents
-                        </div>
-                        <div class="task">
-                            <input type="checkbox"> Drink 2L water
-                        </div>
-                        <div class="task">
-                            <input type="checkbox"> Schedule dentist
-                        </div>
-                        <div class="task">
-                            <input type="checkbox"> Refill prescription
-                        </div>
-                        <div class="task">
-                            <input type="checkbox"> Evening stretches
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="appointments-container">
-                    <h3>Upcoming Appointments</h3>
-                    <div class="appointments">
-                        <div 
-                            v-for="appointment in appointments" 
-                            :key="appointment.start"  
-                            class="appointment"
-                        >
-                            <!-- Updated to use new data structure -->
-                            <strong>{{ formatDate(appointment.start) }} ({{ formatTime(appointment.start) }})</strong>
-                            - {{ appointment.title }}  <!-- Changed from type to title -->
-                        </div>
-                    </div>
-                    <button class="more-details" @click="togglePopup">More details</button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="main-content">
-            <div class="summary-box">
-                <p>patient previous visit summary & doctor's advice to patient</p>
-            </div>
-        </div>
-
-        <!-- Appointment Popup -->
-        <div class="popup-overlay" v-if="showPopup">
-            <div class="appointment-popup-box">
-                <span class="close-popup" @click="togglePopup">&times;</span>
-                <h3>Appointment Options</h3>
-                
-                <div class="popup-buttons">
-                    <button class="popup-btn">
-                        <img src="images/calendar-icon.png" alt="Calendar" class="btn-icon">
-                        <span>View Full Details</span>
-                    </button>
-                    
-                    <button class="popup-btn">
-                        <img src="images/pencil-icon.png" alt="Edit" class="btn-icon">
-                        <span>Edit Appointment</span>
-                    </button>
-                    
-                    <button class="popup-btn">
-                        <img src="images/undo-icon.png" alt="Reschedule" class="btn-icon">
-                        <span>Reschedule</span>
-                    </button>
-                    
-                    <button class="popup-btn">
-                        <img src="images/phone-icon.png" alt="Phone" class="btn-icon">
-                        <span>Contact Support</span>
-                    </button>
+        <div class="navbar-end" style="padding-right: 20px">
+            <div class="navbar-item">
+                <div class="buttons" id="navbar-buttons">
+                    <a class="button has-text-grey-darker is-white" href="pages/login.html">Log in</a>
+                    <a class="button is-white">
+                        <img src="images/settings_icon.png" alt="Settings"/>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+</nav>
 
-    <script src="app.js"></script>
-    
-    <!-- Mobile Menu Toggle -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-            
-            $navbarBurgers.forEach(el => {
-                el.addEventListener('click', () => {
-                    const target = el.dataset.target;
-                    const $target = document.getElementById(target);
-                    
-                    el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
-                });
+<!-- Dashboard -->
+<div id="app" class="container">
+    <div class="sidebar">
+        <div class="dashboard-box">
+            <h2>Dashboard</h2>
+
+            <div class="tasks-container">
+                <h3>Task List</h3>
+                <div class="tasks-scrollable">
+                    <div class="task"><input type="checkbox"/> Morning pushups</div>
+                    <div class="task"><input type="checkbox"/> Upload health documents</div>
+                    <div class="task"><input type="checkbox"/> Drink 2L water</div>
+                    <div class="task"><input type="checkbox"/> Schedule dentist</div>
+                    <div class="task"><input type="checkbox"/> Refill prescription</div>
+                    <div class="task"><input type="checkbox"/> Evening stretches</div>
+                </div>
+            </div>
+
+            <div class="appointments-container">
+                <h3>Upcoming Appointments</h3>
+                <div class="appointments">
+                    <div
+                            v-for="(appointment, index) in appointments"
+                            :key="index"
+                            class="appointment"
+                    >
+                        <strong>{{ formatDate(appointment.date) }} ({{ formatTime(appointment.start) }})</strong>
+                        - {{ appointment.title }}
+                    </div>
+                </div>
+                <button class="more-details" @click="togglePopup">More details</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="summary-box">
+            <p>patient previous visit summary & doctor's advice to patient</p>
+        </div>
+    </div>
+
+    <!-- Appointment Popup -->
+    <div class="popup-overlay" v-if="showPopup">
+        <div class="appointment-popup-box">
+            <span class="close-popup" @click="togglePopup">&times;</span>
+            <h3>Appointment Options</h3>
+
+            <div class="popup-buttons">
+                <button class="popup-btn">
+                    <img src="images/calendar-icon.png" alt="Calendar" class="btn-icon">
+                    <span>View Full Details</span>
+                </button>
+
+                <button class="popup-btn">
+                    <img src="images/pencil-icon.png" alt="Edit" class="btn-icon">
+                    <span>Edit Appointment</span>
+                </button>
+
+                <button class="popup-btn">
+                    <img src="images/undo-icon.png" alt="Reschedule" class="btn-icon">
+                    <span>Reschedule</span>
+                </button>
+
+                <button class="popup-btn">
+                    <img src="images/phone-icon.png" alt="Phone" class="btn-icon">
+                    <span>Contact Support</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script>
+    function logoutUser() {
+        localStorage.removeItem("User");
+        window.location.href = "pages/login.html";
+    }
+
+    function formatDate(dateStr) {
+        const d = new Date(dateStr);
+        return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+    }
+
+    function formatTime(timeStr) {
+        const [h, m] = timeStr.split(':');
+        const hour = parseInt(h);
+        const suffix = hour >= 12 ? "PM" : "AM";
+        const displayHour = hour % 12 || 12;
+        return `${displayHour}:${m} ${suffix}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+        $navbarBurgers.forEach((el) => {
+            el.addEventListener("click", () => {
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                el.classList.toggle("is-active");
+                $target.classList.toggle("is-active");
             });
         });
-    </script>
+
+        const username = localStorage.getItem("User");
+        if (username) {
+            const buttonsDiv = document.getElementById("navbar-buttons");
+            buttonsDiv.innerHTML = `
+          <span class="navbar-item">Welcome, ${username}</span>
+          <a class="button is-white" onclick="logoutUser()">Logout</a>
+        `;
+        }
+
+        const app = new Vue({
+            el: "#app",
+            data: {
+                appointments: [],
+                showPopup: false
+            },
+            created() {
+                const username = localStorage.getItem("User");
+                if (username) {
+                    fetch(`http://localhost:3000/csv-appointments/${username}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log("Appointments fetched:")
+                            console.log("Appointments fetched:", data);
+                            this.appointments = data;
+                        })
+                        .catch(err => console.error("Error fetching appointments:", err));
+                }
+            },
+            methods: {
+                formatDate,
+                formatTime,
+                togglePopup() {
+                    this.showPopup = !this.showPopup;
+                }
+            }
+        });
+    });
+</script>
 </body>
 </html>
