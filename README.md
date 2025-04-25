@@ -27,10 +27,11 @@ They need a solution that is **easy-to-use**, **secure**, and feels **personal a
 ### Key Features
 - **Authentication**: Basic login and signup interface  
 - **Dashboard**: Overview of upcoming appointments, seeing "recent" doctor feedback  and advice
-- **Appointment Booking**:
+- **Ai automated Appointment Booking**:
   - Doctor selection
   - Date/time selection (calendar)
   - Confirmation
+  - ai automation follows up with reminders, rebooking, appointment cancelations ) ~ work in progress...
 - **Support and Troubleshooting sysstem**: pop-up confirmations for changing appointments and setting appointments, user chatbot user interface ( ai chatbot will be implemnted in the future), Frequently asked questions page for user support and useability
 
 
